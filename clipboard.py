@@ -45,12 +45,16 @@ def main():
             # print "Waiting for changed clipboard..."
             time.sleep(1)
         except KeyboardInterrupt:
-            watcher.stop()            
-   ydl_opts = { 'format': '137+140',
- 'writesubtitles':True, 
-'postprocessors': [{ 'key': 'FFmpegSubtitlesConvertor', 'format':'srt'}]
+            watcher.stop()
+            ydl_opts = {
+                'format': '137+140',
+                'writesubtitles': True,
+                'postprocessors': [{
+                    'key': 'FFmpegSubtitlesConvertor',
+                    'format': 'srt'
 
-}
+                }]
+            }
 
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 ydl.download(watcher.get_urls())
