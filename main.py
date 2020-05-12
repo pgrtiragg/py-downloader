@@ -10,8 +10,8 @@ def main():
             time.sleep(1)
         except KeyboardInterrupt:
             watcher.stop()
-            mgr=manager()
-            mgr.start(watcher.get_urls())
+            mgr=manager(watcher.get_urls())
+            mgr.start()
             break
 
 
