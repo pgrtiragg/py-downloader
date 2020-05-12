@@ -28,3 +28,7 @@ class manager():
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 ydl.download(self.links)
 
+                try:
+                    ydl.download(self.links)
+                except youtube_dl.utils.DownloadError as err :
+                    print('formato solicitado no existe')
